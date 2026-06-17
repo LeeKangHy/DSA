@@ -14,7 +14,7 @@ Output:
 
 
 Chú thích :   
-D[u] : ban đầu khởi tạo nghĩa là khoảng cách từ S đến u  
+D[u] : khởi tạo ban đầu là khoảng cách từ S đến u  
 P[u] là mảng đánh dấu các đỉnh u đã được xử lí chưa
 
 --------------------------------------------------------------------------------------
