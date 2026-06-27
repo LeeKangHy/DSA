@@ -6,6 +6,8 @@
 Vì tổng có thể mang giá trị âm (khi gán nhiều dấu trừ), ta cần sử dụng một biến dịch chuyển `OFFSET = tổng tất cả các phần tử` để ánh xạ các chỉ số âm sang chỉ số mảng dương hợp lệ:
 $$\text{chỉ số lưu} = s + \text{OFFSET}$$
 
+Chốt lại : dp[i][s+OFFSET] :   số cách dùng i phần tử đầu tiên để tạo ra tổng s.
+
 ## 2. Khởi tạo
 Khi chưa dùng phần tử nào (`i = 0`), cách duy nhất là tạo ra tổng bằng `0` với đúng 1 cách:
 * `dp[0][0 + OFFSET] = 1`
