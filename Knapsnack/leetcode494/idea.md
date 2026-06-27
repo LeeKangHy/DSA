@@ -3,10 +3,17 @@
 ## 1. Ý tưởng
 Đặt `dp[i][s]` là số cách dùng `i` phần tử đầu tiên để tạo ra tổng `s`.
 
-Vì tổng có thể mang giá trị âm (khi gán nhiều dấu trừ), ta cần sử dụng một biến dịch chuyển `OFFSET = tổng tất cả các phần tử` để ánh xạ các chỉ số âm sang chỉ số mảng dương hợp lệ:
-$$\text{chỉ số lưu} = s + \text{OFFSET}$$
+Với sum = tổng trị tuyệt đối các phần tử trong mảng.
 
-Chốt lại : dp[i][s+OFFSET] :   số cách dùng i phần tử đầu tiên để tạo ra tổng s.
+Ta thấy khoảng giá trị của s là [-sum , sum ]  , mà dp[i][s] với s > 0 (s không được âm)
+
+Vậy thì ta cho 
+
+OFFSET = sum 
+
+Bây giờ thì khoảng giá trì của s+OFFSET là $$[0 , 2 \cdot sum]$$ 
+
+Chốt lại khi cài đặt thì : dp[i][s+OFFSET] :   số cách dùng i phần tử đầu tiên để tạo ra tổng s.
 
 ## 2. Khởi tạo
 Khi chưa dùng phần tử nào (`i = 0`), cách duy nhất là tạo ra tổng bằng `0` với đúng 1 cách:
