@@ -1,7 +1,7 @@
 # Thuật Toán Quy Hoạch Động - Bài Toán Target Sum
 
 ## 1. Ý tưởng
-Đặt `dp[i][s]` là số cách dùng `i` phần tử đầu tiên để tạo ra tổng `s`.
+Đặt `dp[i][s]` là số cách dùng `i` phần tử **đầu tiên** để tạo ra tổng `s`.
 
 Với sum = tổng trị tuyệt đối các phần tử trong mảng.
 
