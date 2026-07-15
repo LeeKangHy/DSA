@@ -21,14 +21,31 @@ Khi chưa dùng phần tử nào (`i = 0`), cách duy nhất là tạo ra tổng
 * Tất cả các trạng thái khác khởi tạo ban đầu bằng `0`.
 
 ## 3. Chuyển trạng thái
-Xét phần tử  `nums[i]`. Nếu đã có `dp[i][s]` cách tạo ra tổng `s`, từ trạng thái này ta có thể mở rộng theo 2 hướng gán dấu cho phần tử tiếp theo:
+Xét phần tử thứ i có giá trị là  `nums[i]`. Nếu đã có `dp[i][s]` cách chọn i phần tử để tạo ra tổng `s`, từ trạng thái này ta có thể mở rộng theo 2 hướng gán dấu cho phần tử tiếp theo:
 
 * **Gán dấu cộng (`+`):**
   $$dp[i + 1][s + \text{nums}[i] + \text{OFFSET}] \mathrel{+}= dp[i][s + \text{OFFSET}]$$
 * **Gán dấu trừ (`-`):**
   $$dp[i + 1][s - \text{nums}[i] + \text{OFFSET}] \mathrel{+}= dp[i][s + \text{OFFSET}]$$
 
-Mỗi trạng thái hiện tại sẽ sinh ra 2 trạng thái mới tương ứng với hai cách gán dấu cho phần tử tiếp theo. Nhờ đó, mọi khả năng đều được xét đầy đủ và không bị đếm trùng.
+Mỗi trạng thái hiện tại sẽ sinh ra 2 trạng thái mới tương ứng với hai cách gán dấu cho phần tử  i+1 . Nhờ đó, mọi khả năng đều được xét đầy đủ và không bị đếm trùng.
+
+
+------
+Xét phần tử thứ i có giá trị nums[i]. Giả sử đã có dp[i][s + OFFSET], tức là có dp[i][s + OFFSET] cách gán dấu cho i phần tử đầu tiên để thu được tổng bằng s.
+
+Khi xét phần tử nums[i], ta có hai lựa chọn:
+
+* **Gán dấu cộng (`+`):**
+  $$dp[i + 1][s + \text{nums}[i] + \text{OFFSET}] \mathrel{+}= dp[i][s + \text{OFFSET}]$$
+* **Gán dấu trừ (`-`):**
+  $$dp[i + 1][s - \text{nums}[i] + \text{OFFSET}] \mathrel{+}= dp[i][s + \text{OFFSET}]$$
+
+Mỗi trạng thái hiện tại sinh ra hai trạng thái mới, tương ứng với hai cách gán dấu cho phần tử nums[i]. Nhờ đó, thuật toán duyệt đầy đủ mọi cách gán dấu cho các phần tử mà không bỏ sót hay đếm trùng.
+
+---
+
+
 
 ## 4. Đáp án
 Sau khi duyệt và xét hết tất cả `n` phần tử, số cách để đạt được tổng mong muốn (`target`) chính là:
