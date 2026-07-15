@@ -11,7 +11,7 @@ Vậy thì ta cho
 
 OFFSET = sum 
 
-Bây giờ thì khoảng giá trì của s+OFFSET là $$[0 , 2 \cdot sum]$$ 
+Bây giờ thì khoảng giá trị của s+OFFSET là $$[0 , 2 \cdot sum]$$ 
 
 Chốt lại khi cài đặt thì : dp[i][s+OFFSET] :   số cách dùng i phần tử đầu tiên để tạo ra tổng s.
 
@@ -21,7 +21,7 @@ Khi chưa dùng phần tử nào (`i = 0`), cách duy nhất là tạo ra tổng
 * Tất cả các trạng thái khác khởi tạo ban đầu bằng `0`.
 
 ## 3. Chuyển trạng thái
-Xét phần tử thứ `nums[i]`. Nếu đã có `dp[i][s]` cách tạo ra tổng `s`, từ trạng thái này ta có thể mở rộng theo 2 hướng gán dấu cho phần tử tiếp theo:
+Xét phần tử  `nums[i]`. Nếu đã có `dp[i][s]` cách tạo ra tổng `s`, từ trạng thái này ta có thể mở rộng theo 2 hướng gán dấu cho phần tử tiếp theo:
 
 * **Gán dấu cộng (`+`):**
   $$dp[i + 1][s + \text{nums}[i] + \text{OFFSET}] \mathrel{+}= dp[i][s + \text{OFFSET}]$$
